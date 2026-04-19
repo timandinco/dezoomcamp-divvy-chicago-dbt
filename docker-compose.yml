@@ -1,0 +1,49 @@
+services:
+  base:
+    build:
+      context: .
+      dockerfile: docker/base/Dockerfile
+    image: divvy-base:latest
+
+  dbt:
+    build:
+      context: .
+      dockerfile: docker/dbt/Dockerfile
+    depends_on:
+      - base
+    working_dir: /workspace/dbt
+    volumes:
+      - ./:/workspace
+    entrypoint: ["bash", "-lc"]
+
+  ingest:
+    build:
+      context: .
+      dockerfile: docker/ingest/Dockerfile
+    depends_on:
+      - base
+    working_dir: /workspace
+    volumes:
+      - ./:/workspace
+    # entrypoint: ["bash", "-lc"]
+
+  jupyter:
+    build:
+      context: .
+      dockerfile: docker/jupyter/Dockerfile
+    depends_on:
+      - base
+    working_dir: /workspace
+    volumes:
+      - ./:/workspace
+    ports:
+      - "8888:8888"
+    command: >
+      bash -lc "jupyter lab
+      --ip=0.0.0.0 --port=8888 --no-browser
+      --ServerApp.token='' --ServerApp.password=''
+      --ServerApp.allow_origin='*'"
+
+networks:
+  default:
+    name: divvy_local
