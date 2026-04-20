@@ -1,0 +1,15 @@
+version: 2
+
+models:
+  - name: fct_trips
+    columns:
+      - name: ride_id
+        tests:
+          - not_null
+          - unique
+
+  - name: dim_stations
+    columns:
+      - name: station_name
+        tests:
+          - not_null

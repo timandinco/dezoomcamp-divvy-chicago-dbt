@@ -11,10 +11,9 @@ services:
       dockerfile: docker/dbt/Dockerfile
     depends_on:
       - base
-    working_dir: /workspace/dbt
+    working_dir: /workspace/dbt/divvy_chicago
     volumes:
       - ./:/workspace
-    entrypoint: ["bash", "-lc"]
 
   ingest:
     build:

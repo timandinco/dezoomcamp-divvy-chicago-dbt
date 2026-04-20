@@ -1,0 +1,11 @@
+version: 2
+
+models:
+  - name: trips_by_day
+    description: "Daily trip counts and averages"
+
+  - name: trips_by_station
+    description: "Top stations by trip volume"
+
+  - name: peak_usage
+    description: "Trips by hour of day"

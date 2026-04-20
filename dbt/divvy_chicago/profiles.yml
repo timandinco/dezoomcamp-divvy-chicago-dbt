@@ -1,0 +1,12 @@
+divvy_chicago:
+  target: dev
+  outputs:
+    dev:
+      type: duckdb
+      path: /workspace/data/warehouse.duckdb
+      threads: 1
+      extensions:
+        - parquet
+      settings:
+        memory_limit: '2GB'
+        preserve_insertion_order: false

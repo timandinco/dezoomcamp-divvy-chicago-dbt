@@ -1,0 +1,17 @@
+version: 2
+
+models:
+  - name: stg_divvy_trips
+    description: "Cleaned Divvy trip data"
+    columns:
+      - name: ride_id
+        tests:
+          - not_null
+          - unique
+
+      - name: started_at
+        tests:
+          - not_null
+
+      - name: trip_duration_min
+        description: "Trip duration in minutes"

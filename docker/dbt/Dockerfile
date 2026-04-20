@@ -1,7 +1,7 @@
 FROM divvy-base
 
 RUN pip install --no-cache-dir \
-    dbt-core==1.8.7 \
-    dbt-duckdb==1.8.2
+    dbt-core==1.11.8 \
+    dbt-duckdb==1.10.1
 
 CMD ["bash"]
