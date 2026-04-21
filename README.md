@@ -188,6 +188,8 @@ It demonstrates:
 - reproducibility with Docker
 - modern analytics patterns
 
+[Homework Links](https://github.com/timandinco/data-zoomcamp)
+
 ## Author
 
 Tim Anderson
