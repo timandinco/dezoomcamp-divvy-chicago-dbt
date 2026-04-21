@@ -9,6 +9,11 @@ SELECT
     start_station_name,
     end_station_name,
 
+    start_lat,
+    start_lng,
+    end_lat,
+    end_lng,
+
     member_casual
 
 FROM {{ ref('stg_divvy_trips') }}
